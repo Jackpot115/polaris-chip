@@ -12,6 +12,7 @@ export class MyCard extends LitElement {
     title: { type: String },
     image: { type: String },
     linkText: { type: String },
+    linkUrl: { type: String },
     backgroundColor: { type: String }
   };
 
@@ -23,7 +24,9 @@ export class MyCard extends LitElement {
     super();
     this.title = "My card";
     this.image = 'https://psu-gatsby-files-prod.s3.amazonaws.com/s3fs-public/styles/16_9_1000w/public/2024/11/hax-2024.jpg?h=76593129&itok=Tiu2ETmI';
-    this.linkText = 'Click Me';
+    this.paragraph = "A whole new way to design the web."
+    this.linkText = "Details";
+    this.linkUrl = "https://hax.psu.edu/";
     this.backgroundColor = '#42b6f5';
   }
 
@@ -70,7 +73,8 @@ export class MyCard extends LitElement {
     <div class="card" style="background-color: ${this.backgroundColor}">
         <h3>${this.title}</h3>
         <img src="${this.image}" alt="${this.title}" />
-        <a href="#">${this.linkText}</a>
+        <h3>${this.paragraph}</h4>
+        <a href="${this.linkUrl}">${this.linkText}</a>
       </div>
     `;
   }
