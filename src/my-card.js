@@ -11,6 +11,7 @@ export class MyCard extends LitElement {
   static properties = {
     title: { type: String },
     image: { type: String },
+    paragraph: { type: String},
     linkText: { type: String },
     linkUrl: { type: String },
     backgroundColor: { type: String }
@@ -73,7 +74,7 @@ export class MyCard extends LitElement {
     <div class="card" style="background-color: ${this.backgroundColor}">
         <h3>${this.title}</h3>
         <img src="${this.image}" alt="${this.title}" />
-        <h3>${this.paragraph}</h4>
+        <h3>${this.paragraph}</h3>
         <a href="${this.linkUrl}">${this.linkText}</a>
       </div>
     `;
