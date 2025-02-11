@@ -60,7 +60,7 @@ export class MyCard extends LitElement {
       .card a {
         display: inline-block;
       }
-    
+  }
     `;
   }
 
