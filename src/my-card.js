@@ -16,9 +16,10 @@ export class MyCard extends LitElement {
     super();
     this.title = "My card";
     this.image = 'https://psu-gatsby-files-prod.s3.amazonaws.com/s3fs-public/styles/16_9_1000w/public/2024/11/hax-2024.jpg?h=76593129&itok=Tiu2ETmI';
-    this.paragraph = "A whole new way to design the web."
+    this.paragraph = "A whole new way to design the web.";
     this.link = "https://hax.psu.edu/";
     this.backgroundColor = '#42b6f5';
+    this.fancy = true;
   }
 
   static get styles() {
@@ -29,6 +30,12 @@ export class MyCard extends LitElement {
         align-items: center;
         margin: 0;
       }
+
+      :host([fancy]) .cards {
+        background-color: blue;
+        color: white
+      }
+
       .card {
       width: 300px;
       border: 1px solid black;
@@ -60,19 +67,18 @@ export class MyCard extends LitElement {
 
   render() {
     return html`
-    <div class="card" style="background-color: ${this.backgroundColor}">
+      <div class="card" style="background-color: ${this.backgroundColor}; color: ${this.textColor};">
         <h3>${this.title}</h3>
         <img src="${this.image}" alt="${this.title}" />
-        <h3>${this.paragraph}</h3>
-        <a href=${this.link} target="_blank">
-        <button class="btn"><em>Details</em></button>
-        </a>
+        <p>${this.paragraph}</p>
+        ${this.link ? html`<a href="${this.link}" target="_blank">Learn More</a>` : ''}
       </div>
     `;
   }
 
   static get properties() {
     return {
+      fancy: { type: boolean, reflect: true},
       title: { type: String },
       image: { type: String },
       paragraph: { type: String},
