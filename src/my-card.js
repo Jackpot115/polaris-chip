@@ -8,15 +8,6 @@ import { LitElement, html, css } from 'lit';
 
 export class MyCard extends LitElement {
 
-  static properties = {
-    title: { type: String },
-    image: { type: String },
-    paragraph: { type: String},
-    linkText: { type: String },
-    linkUrl: { type: String },
-    backgroundColor: { type: String }
-  };
-
   static get tag() {
     return 'my-card';
   }
@@ -83,6 +74,11 @@ export class MyCard extends LitElement {
   static get properties() {
     return {
       title: { type: String },
+      image: { type: String },
+      paragraph: { type: String},
+      linkText: { type: String },
+      linkUrl: { type: String },
+      backgroundColor: { type: String }
     };
   }
 }
