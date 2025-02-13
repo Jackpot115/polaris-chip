@@ -24,7 +24,7 @@ export class MyCard extends LitElement {
   static get styles() {
     return css`
       :host {
-        display: block;
+        display: inline-flex;
         justify-content: center;
         align-items: center;
         margin: 0;
@@ -37,7 +37,7 @@ export class MyCard extends LitElement {
 
       .card {
       width: 300px;
-      border: 1px solid black;
+      border: 2px solid black;
       padding: 16px;
       text-align: center;
       background-color: var(--card-bg, #42b6f5);
@@ -54,10 +54,7 @@ export class MyCard extends LitElement {
       border-radius: 4px;
       text-decoration: none;
     }
-      .card h3 {
-      margin: 0 0 10px;
-    }
-    
+      
       @media (max-width: 800px) and (min-width: 500px) {
       .card a {
         display: inline-block;

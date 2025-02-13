@@ -47,9 +47,21 @@
 
 <h1>Meh Cards</h1>
 
-<button class="toggle">Toggle</button>
+<button>Toggle</button>
+
+<script>
+  const button = document.querySelector('button');
+  button.addEventListener('click', () => {
+    const card = document.querySelector('my-card');
+      card.fancy = !card.fancy;
+    });
+</script>
+
+
+<div>
 
 <my-card></my-card>
+
 
 <my-card
 title="This assignment was difficult" 
@@ -69,15 +81,8 @@ image="https://assets.powerplaystats.com/medias/4838.jpg">
 <p><em>Who Dis Guy?</em></p>
 </my-card>
 
-<my-card title="But somehow I prevailed" 
-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc_zE9f0s86-x0VPiApT1OL8uLUVmV7KJ8yA&s">
-<p><em>Still, Who Dis Guy?</em></p>
-</my-card>
 
-<my-card title="I wanna go home..." 
-image="https://tinypng.com/images/social/website.jpg">
-<p>I CAN'T STOP WINNING!!</p>
-</my-card>
+</div>
 
   <!-- this is what is bringing in the definition for this tag -->
   <script type="module" src="./src/polaris-chip.js"></script>
