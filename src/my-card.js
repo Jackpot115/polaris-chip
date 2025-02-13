@@ -79,7 +79,7 @@ export class MyCard extends LitElement {
     return html`
     <div 
       class="card" style="background-color: ${this.backgroundColor}">
-        <h3>${this.title}</h3>
+        <h2>${this.title}</h2>
         <img src="${this.image}" alt="${this.title}" />
         <!-- put this in your render method where you had details -->
         <details ?open="${this.fancy}" @toggle="${this.openChanged}">
