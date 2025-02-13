@@ -18,8 +18,7 @@ export class MyCard extends LitElement {
     this.image = 'https://psu-gatsby-files-prod.s3.amazonaws.com/s3fs-public/styles/16_9_1000w/public/2024/11/hax-2024.jpg?h=76593129&itok=Tiu2ETmI';
     this.linkText = "Details";
     this.linkUrl = "https://hax.psu.edu/";
-    this.backgroundColor = '#42b6f5'
-    this.fancy = true;
+    this.fancy = false;
   }
 
   static get styles() {
@@ -32,7 +31,7 @@ export class MyCard extends LitElement {
       }
 
       :host([fancy]) .card {
-        background-color: blue;
+        background-color: green;
         color: white;
       }
 
@@ -58,6 +57,7 @@ export class MyCard extends LitElement {
       .card h3 {
       margin: 0 0 10px;
     }
+    
       @media (max-width: 800px) and (min-width: 500px) {
       .card a {
         display: inline-block;
@@ -67,13 +67,31 @@ export class MyCard extends LitElement {
     `;
   }
 
+  // put this anywhere on the MyCard class; just above render() is probably good
+  openChanged(e) {
+    console.log(e.newState);
+    if (e.newState === "open") {
+      this.fancy = true;
+    }
+    else {
+      this.fancy = false;
+    }
+  }
+
   render() {
     return html`
-    <div class="card" style="background-color: ${this.backgroundColor}">
+    <div 
+      class="card" style="background-color: ${this.backgroundColor}">
         <h3>${this.title}</h3>
         <img src="${this.image}" alt="${this.title}" />
-        <slot></slot>
-        <a href="${this.linkUrl}">${this.linkText}</a>
+        <!-- put this in your render method where you had details -->
+        <details ?open="${this.fancy}" @toggle="${this.openChanged}">
+        <summary>Description</summary>
+        <div>
+          <slot></slot>
+          <a href="${this.linkUrl}">${this.linkText}</a>
+        </div>
+        </details>
       </div>
     `;
   }
@@ -84,8 +102,7 @@ export class MyCard extends LitElement {
       image: { type: String },
       linkText: { type: String },
       linkUrl: { type: String },
-      backgroundColor: { type: String },
-      fancy: { type: Boolean, reflect: false}
+      fancy: { type: Boolean, reflect: true}
     };
   }
 }
