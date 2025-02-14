@@ -27,7 +27,6 @@ export class MyCard extends LitElement {
         display: inline-flex;
         justify-content: center;
         align-items: center;
-        margin: 0;
       }
 
       :host([fancy]) .card {
@@ -43,8 +42,8 @@ export class MyCard extends LitElement {
       background-color: var(--card-bg, #42b6f5);
     }
       .card img {
-      width: 100%;
-      height: auto;
+      width: 250px;
+      height: 200px;
     }
       .card a {
       display: none;
@@ -52,7 +51,6 @@ export class MyCard extends LitElement {
       background: blue;
       padding: 8px 12px;
       border-radius: 4px;
-      text-decoration: none;
     }
       
       @media (max-width: 800px) and (min-width: 500px) {
