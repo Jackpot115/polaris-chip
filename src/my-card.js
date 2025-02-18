@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import "@haxtheweb/meme-maker/meme-maker.js";
 
 /**
  * Now it's your turn. Here's what we need to try and do:
@@ -76,9 +77,10 @@ export class MyCard extends LitElement {
   render() {
     return html`
     <div 
-      class="card" style="background-color: ${this.backgroundColor}">
+      class="card" 
+      style="background-color: ${this.backgroundColor}">
         <h2>${this.title}</h2>
-        <img src="${this.image}" alt="${this.title}" />
+        <meme-maker image-url=${this.image} top-text="Who" bottom-text="Who asked?"> </meme-maker>
         <!-- put this in your render method where you had details -->
         <details ?open="${this.fancy}" @toggle="${this.openChanged}">
         <summary>Description</summary>
