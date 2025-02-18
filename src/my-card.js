@@ -44,7 +44,7 @@ export class MyCard extends LitElement {
     }
       .card img {
       width: 250px;
-      height: 200px;
+      height: 500px;
     }
       .card a {
       display: none;
